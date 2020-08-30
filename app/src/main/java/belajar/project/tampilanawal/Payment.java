@@ -72,6 +72,7 @@ public class Payment extends AppCompatActivity {
                     String saldo = userDetails.getString("saldo", "");
                     int id = userDetails.getInt("user_id", 0);
                     if(longitude>0 && latitude !=0 && saldo!=null && id !=0){
+                        pay(Double.toString(longitude), Double.toString(latitude),saldo,Integer.toString(id));
                         Toast.makeText(getApplicationContext(), "sudah ada", Toast.LENGTH_SHORT).show();
                     } else Toast.makeText(getApplicationContext(), "Longitude:" + Double.toString(longitude) + "\nLatitude:" + Double.toString(latitude), Toast.LENGTH_SHORT).show();
                 } else {
@@ -82,9 +83,9 @@ public class Payment extends AppCompatActivity {
 
     }
 
-    private void Login(final String longitude, final String latitude) {
+    private void pay(final String longitude, final String latitude, final String saldo, final String id) {
         //Atur URL file Login di Apache Server
-        String URL_LOGIN = Address.ip+"etoll/login.php";
+        String URL_LOGIN = Address.ip+"etoll/payment.php";
 
         //String Request dengan menggunakan method POST
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_LOGIN,
@@ -97,15 +98,14 @@ public class Payment extends AppCompatActivity {
                             JSONObject jsonResponse = new JSONObject(response);
                             int status = jsonResponse.getInt("status");
                             String msg = jsonResponse.getString("msg");
-
                             String saldo = jsonResponse.getString("saldo");
-
                             //Menyimpan Session
 
                             //Menyimpan Session
 
                             //Kondisi Yang Terjadi Berdasarkan Data JSON Yang Diterima
-                            if(status == 1){
+                            if(status == 1 && saldo!="0"){
+
                                 //Login Berhasil
                                 Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
                                 Bundle ePzl= new Bundle();
@@ -116,6 +116,7 @@ public class Payment extends AppCompatActivity {
                                 Payment.this.startActivity(direct);
                             }
                             else{
+
                                 //Login Gagal
                                 Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
                             }
@@ -140,6 +141,8 @@ public class Payment extends AppCompatActivity {
                 //POST data yang dikirim
                 params.put("longU", longitude);
                 params.put("latU", latitude);
+                params.put("user_id", id);
+                params.put("saldo", saldo);
 
                 return params;
             }
