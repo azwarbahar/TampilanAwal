@@ -119,7 +119,7 @@ public class Payment extends AppCompatActivity {
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            Toast.makeText(getApplicationContext(), "Try Login Error = " + e.toString(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Try pay Error = " + e.toString(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 },
