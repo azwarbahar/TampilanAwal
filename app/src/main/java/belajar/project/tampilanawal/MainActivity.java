@@ -8,9 +8,11 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private CardView infoCv,userCv,paymentCv,historyCv;
+    public String saldos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +21,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // definisikan cards nya bosku !!!
 
         Bundle p = getIntent().getExtras();
-        String saldos = p.getString("saldo");
+        saldos = p.getString("saldo");
         setContentView(R.layout.activity_main);
         TextView saldo = findViewById(R.id.saldo);
         infoCv = (CardView) findViewById(R.id.info_cv);
@@ -28,14 +30,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         historyCv = (CardView) findViewById(R.id.history_cv);
 
         // tambah Click listener pada cards nya bosku !!!
-        if(saldo.length() ==0 || saldo == null){
-            SharedPreferences userDetails = getApplicationContext().getSharedPreferences("my_shared_preferences", MODE_PRIVATE);
-            saldos = userDetails.getString("saldo", "");
-        }
+        SharedPreferences userDetails = getApplicationContext().getSharedPreferences("my_shared_preferences", MODE_PRIVATE);
+        saldos = userDetails.getString("saldo", "");
         saldo.setText("Saldo : "+saldos);
         infoCv.setOnClickListener(this);
         userCv.setOnClickListener(this);
-        paymentCv.setOnClickListener(this);
+        paymentCv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(Integer.parseInt(saldos)>=2000){
+                    Intent i = new Intent(getApplicationContext(), Payment.class);
+                    startActivity(i);
+                } else {
+                    Toast.makeText(getApplicationContext(), "Saldo tidak cukup", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
         historyCv.setOnClickListener(this);
     }
 
@@ -46,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (view.getId() ) {
             case R.id.info_cv : i = new Intent(this, info.class);startActivity(i); break;
             case R.id.user_cv : i =   new Intent(this, User.class);startActivity(i); break;
-            case R.id.payment_cv : i =   new Intent(this, Payment.class);startActivity(i); break;
+
             case R.id.history_cv : i =   new Intent(this, History.class);startActivity(i); break;
             default:break;
 

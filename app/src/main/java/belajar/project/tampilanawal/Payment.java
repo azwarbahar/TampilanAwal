@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.TargetApi;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -33,6 +34,7 @@ import belajar.project.tampilanawal.Service.LocationTrack;
 
 import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
+import static belajar.project.tampilanawal.Login.my_shared_preferences;
 
 public class Payment extends AppCompatActivity {
     private ArrayList permissionsToRequest;
@@ -41,6 +43,7 @@ public class Payment extends AppCompatActivity {
 
     private final static int ALL_PERMISSIONS_RESULT = 101;
     LocationTrack locationTrack;
+    SharedPreferences sharedpreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +76,7 @@ public class Payment extends AppCompatActivity {
                     int id = userDetails.getInt("user_id", 0);
                     if(longitude>0 && latitude !=0 && saldo!=null && id !=0){
                         pay(Double.toString(longitude), Double.toString(latitude),saldo,Integer.toString(id));
-                        Toast.makeText(getApplicationContext(), "sudah ada", Toast.LENGTH_SHORT).show();
+
                     } else Toast.makeText(getApplicationContext(), "Longitude:" + Double.toString(longitude) + "\nLatitude:" + Double.toString(latitude), Toast.LENGTH_SHORT).show();
                 } else {
                     locationTrack.showSettingsAlert();
@@ -106,20 +109,25 @@ public class Payment extends AppCompatActivity {
                             //Kondisi Yang Terjadi Berdasarkan Data JSON Yang Diterima
                             if(status == 1 && saldo!="0"){
 
-                                Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
                                 Bundle ePzl= new Bundle();
                                 ePzl.putString("saldo", saldo);
+                                sharedpreferences = getSharedPreferences(my_shared_preferences, Context.MODE_PRIVATE);
+                                SharedPreferences.Editor editor3 = sharedpreferences.edit();
+                                editor3.putString("saldo", saldo);
+                                editor3.commit();
                                 //Pindah ke halaman Login
+                                Toast.makeText(getApplicationContext(), saldo, Toast.LENGTH_LONG).show();
                                 Intent direct = new Intent(getApplicationContext(), MainActivity.class);
                                 direct.putExtras(ePzl);
                                 Payment.this.startActivity(direct);
                             }
                             else{
-                                Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
-                            Toast.makeText(getApplicationContext(), "Try pay Error = " + e.toString(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(), "Try pay Error = " + e.toString(), Toast.LENGTH_LONG).show();
                         }
                     }
                 },
