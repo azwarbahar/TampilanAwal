@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // definisikan cards nya bosku !!!
 
         Bundle p = getIntent().getExtras();
+        String saldos = p.getString("saldo");
         setContentView(R.layout.activity_main);
         TextView saldo = findViewById(R.id.saldo);
         infoCv = (CardView) findViewById(R.id.info_cv);
@@ -26,7 +28,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         historyCv = (CardView) findViewById(R.id.history_cv);
 
         // tambah Click listener pada cards nya bosku !!!
-        saldo.setText("Saldo : "+p.getString("saldo"));
+        if(saldo.length() ==0 || saldo == null){
+            SharedPreferences userDetails = getApplicationContext().getSharedPreferences("my_shared_preferences", MODE_PRIVATE);
+            saldos = userDetails.getString("saldo", "");
+        }
+        saldo.setText("Saldo : "+saldos);
         infoCv.setOnClickListener(this);
         userCv.setOnClickListener(this);
         paymentCv.setOnClickListener(this);
