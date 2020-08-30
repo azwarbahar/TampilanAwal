@@ -106,7 +106,6 @@ public class Payment extends AppCompatActivity {
                             //Kondisi Yang Terjadi Berdasarkan Data JSON Yang Diterima
                             if(status == 1 && saldo!="0"){
 
-                                //Login Berhasil
                                 Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
                                 Bundle ePzl= new Bundle();
                                 ePzl.putString("saldo", saldo);
@@ -116,8 +115,6 @@ public class Payment extends AppCompatActivity {
                                 Payment.this.startActivity(direct);
                             }
                             else{
-
-                                //Login Gagal
                                 Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT).show();
                             }
                         } catch (JSONException e) {
