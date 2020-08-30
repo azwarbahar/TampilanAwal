@@ -35,6 +35,7 @@ public class Login extends AppCompatActivity {
     //Session
     public final static String KEY = "KEY";
     public final static String ID = "user_id";
+    public final static String SALDO = "saldo";
     SharedPreferences sharedpreferences;
     public static final String my_shared_preferences = "my_shared_preferences";
     //Session
@@ -138,6 +139,10 @@ public class Login extends AppCompatActivity {
                             SharedPreferences.Editor editor2 = sharedpreferences.edit();
                             editor2.putInt(ID, id);
                             editor2.commit();
+
+                            SharedPreferences.Editor editor3 = sharedpreferences.edit();
+                            editor3.putString(SALDO, saldo);
+                            editor3.commit();
                             //Menyimpan Session
 
                             //Kondisi Yang Terjadi Berdasarkan Data JSON Yang Diterima

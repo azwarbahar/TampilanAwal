@@ -6,6 +6,7 @@ import android.annotation.TargetApi;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
@@ -67,10 +68,12 @@ public class Payment extends AppCompatActivity {
                 if (locationTrack.canGetLocation()) {
                     double longitude = locationTrack.getLongitude();
                     double latitude = locationTrack.getLatitude();
-                    if(longitude>0 && latitude !=0){
-
-                    }
-                    Toast.makeText(getApplicationContext(), "Longitude:" + Double.toString(longitude) + "\nLatitude:" + Double.toString(latitude), Toast.LENGTH_SHORT).show();
+                    SharedPreferences userDetails = getApplicationContext().getSharedPreferences("my_shared_preferences", MODE_PRIVATE);
+                    String saldo = userDetails.getString("saldo", "");
+                    int id = userDetails.getInt("user_id", 0);
+                    if(longitude>0 && latitude !=0 && saldo!=null && id !=0){
+                        Toast.makeText(getApplicationContext(), "sudah ada", Toast.LENGTH_SHORT).show();
+                    } else Toast.makeText(getApplicationContext(), "Longitude:" + Double.toString(longitude) + "\nLatitude:" + Double.toString(latitude), Toast.LENGTH_SHORT).show();
                 } else {
                     locationTrack.showSettingsAlert();
                 }
