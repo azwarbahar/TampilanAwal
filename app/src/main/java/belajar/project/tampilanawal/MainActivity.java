@@ -12,7 +12,7 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private CardView infoCv,userCv,paymentCv,historyCv;
-    public String saldos;
+    public String saldos, user;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Bundle p = getIntent().getExtras();
         saldos = p.getString("saldo");
+        user = p.getString("username");
         setContentView(R.layout.activity_main);
         TextView saldo = findViewById(R.id.saldo);
         infoCv = (CardView) findViewById(R.id.info_cv);

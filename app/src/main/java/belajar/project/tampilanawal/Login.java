@@ -153,10 +153,12 @@ public class Login extends AppCompatActivity {
                                 Toast.makeText(Login.this, msg, Toast.LENGTH_SHORT).show();
                                 Bundle ePzl= new Bundle();
                                 ePzl.putString("saldo", saldo);
+                                ePzl.putString("username", username);
                                 //Pindah ke halaman Login
                                 Intent direct = new Intent(Login.this, MainActivity.class);
                                 direct.putExtras(ePzl);
                                 Login.this.startActivity(direct);
+                                finish();
                             }
                             else{
                                 //Login Gagal

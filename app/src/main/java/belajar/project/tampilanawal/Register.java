@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -33,6 +34,7 @@ public class Register extends AppCompatActivity {
     //Inisialisasi tipe variable XML
     private EditText et_username, et_email, et_pass, et_c_pass;
     private Button btn_register;
+    private TextView btn_login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +47,17 @@ public class Register extends AppCompatActivity {
         et_pass = findViewById(R.id.et_register_pass);
         et_c_pass = findViewById(R.id.et_register_c_pass);
         btn_register = findViewById(R.id.btn_register_register);
+        btn_login = findViewById(R.id.btn_login);
+
+        // kemabli ke Login
+        btn_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Register.this, Login.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         //Method Agar Tombol Register Dapat Ditekan
         btn_register.setOnClickListener(new View.OnClickListener() {
