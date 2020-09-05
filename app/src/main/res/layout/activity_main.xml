@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -10,9 +9,9 @@
     <ImageView
         android:id="@+id/img_header"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="180dp"
         android:layout_alignParentTop="true"
-        android:background="@drawable/header_regist" />
+        android:background="@drawable/bg_header_menu" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -24,96 +23,147 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="230dp"
         android:background="@drawable/mid_regist" />
+
+
+    <TextView
+        android:id="@+id/tv_nama"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="40dp"
+        android:text="Hi, Budi Setiawan"
+        android:textColor="@color/putih"
+        android:textSize="26dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_nama"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Saldo  :"
+        android:textColor="@color/putih"
+        android:textSize="22sp" />
 
     <TextView
         android:id="@+id/saldo"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Saldo" />
+        android:layout_below="@id/tv_nama"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="8dp"
+        android:layout_toRightOf="@id/tv1"
+        android:text="100000"
+        android:textColor="@color/putih"
+        android:textSize="22sp" />
 
     <LinearLayout
+        android:id="@+id/ll1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:layout_below="@id/saldo"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="15dp"
+        android:clipToPadding="false"
         android:gravity="center"
-        android:clipToPadding="false">
+        android:orientation="horizontal"
+        android:weightSum="2">
+
         <androidx.cardview.widget.CardView
             android:id="@+id/info_cv"
-            android:layout_width="160dp"
+            android:layout_width="match_parent"
             android:layout_height="190dp"
-            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
             android:clickable="true"
-            android:layout_margin="10dp">
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="vertical">
+
                 <ImageView
                     android:layout_width="64dp"
                     android:layout_height="64dp"
+                    android:background="@drawable/criclebackground"
                     android:padding="10dp"
-                    android:src="@drawable/info"
-                    android:background="@drawable/criclebackground"/>
+                    android:src="@drawable/info" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Info"
                     android:layout_marginTop="10dp"
-                    android:textStyle="bold"/>
+                    android:text="Info"
+                    android:textStyle="bold" />
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@android:color/darker_gray"
-                    android:layout_margin="10dp"/>
+                    android:layout_margin="10dp"
+                    android:background="@android:color/darker_gray" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:padding="5dp"
                     android:text="Info Saldo"
-                    android:textColor="@android:color/darker_gray"/>
+                    android:textColor="@android:color/darker_gray" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/user_cv"
-            android:layout_width="160dp"
+            android:layout_width="match_parent"
             android:layout_height="190dp"
-            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
             android:clickable="true"
-            android:layout_margin="10dp">
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="vertical">
+
                 <ImageView
                     android:layout_width="64dp"
                     android:layout_height="64dp"
+                    android:background="@drawable/criclebackground"
                     android:padding="10dp"
-                    android:src="@drawable/user"
-                    android:background="@drawable/criclebackground"/>
+                    android:src="@drawable/user" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="User"
                     android:layout_marginTop="10dp"
-                    android:textStyle="bold"/>
+                    android:text="User"
+                    android:textStyle="bold" />
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@android:color/darker_gray"
-                    android:layout_margin="10dp"/>
+                    android:layout_margin="10dp"
+                    android:background="@android:color/darker_gray" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:padding="5dp"
                     android:text="Info User"
-                    android:textColor="@android:color/darker_gray"/>
+                    android:textColor="@android:color/darker_gray" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -123,60 +173,77 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:paddingBottom="20dp"
+        android:layout_below="@id/ll1"
+        android:layout_marginHorizontal="16dp"
+        android:clipToPadding="false"
         android:gravity="center"
-        android:clipToPadding="false">
+        android:orientation="horizontal"
+        android:weightSum="2">
+
         <androidx.cardview.widget.CardView
             android:id="@+id/payment_cv"
-            android:layout_width="160dp"
+            android:layout_width="match_parent"
             android:layout_height="190dp"
-            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
             android:clickable="true"
-            android:layout_margin="10dp">
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="vertical">
+
                 <ImageView
                     android:layout_width="64dp"
                     android:layout_height="64dp"
+                    android:background="@drawable/criclebackground"
                     android:padding="10dp"
-                    android:src="@drawable/payment"
-                    android:background="@drawable/criclebackground"/>
+                    android:src="@drawable/payment" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Payment"
                     android:layout_marginTop="10dp"
-                    android:textStyle="bold"/>
+                    android:text="Payment"
+                    android:textStyle="bold" />
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@android:color/darker_gray"
-                    android:layout_margin="10dp"/>
+                    android:layout_margin="10dp"
+                    android:background="@android:color/darker_gray" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:padding="5dp"
                     android:text="Pembayaran Payment"
-                    android:textColor="@android:color/darker_gray"/>
+                    android:textColor="@android:color/darker_gray" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:id="@+id/history_cv"
-            android:layout_width="160dp"
+            android:layout_width="match_parent"
             android:layout_height="190dp"
-            android:foreground="?android:attr/selectableItemBackground"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
             android:clickable="true"
-            android:layout_margin="10dp">
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="8dp">
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="64dp"
@@ -184,24 +251,27 @@
                     android:background="@drawable/criclebackground"
                     android:padding="10dp"
                     android:src="@drawable/riwayat" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="History"
                     android:layout_marginTop="10dp"
-                    android:textStyle="bold"/>
+                    android:text="History"
+                    android:textStyle="bold" />
+
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:background="@android:color/darker_gray"
-                    android:layout_margin="10dp"/>
+                    android:layout_margin="10dp"
+                    android:background="@android:color/darker_gray" />
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:padding="5dp"
                     android:text="Riwayat Pembayaran"
-                    android:textColor="@android:color/darker_gray"/>
+                    android:textColor="@android:color/darker_gray" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 

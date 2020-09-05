@@ -71,24 +71,28 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                //Inisialisasi Variable dengan tipe String
-                String username, pass;
+                Intent intent = new Intent(Login.this, MainActivity.class);
+                startActivity(intent);
 
-                //Memasukkan Data String yang ditangkap ke Variable yang telah diinisialisasikan
-                username = et_username.getText().toString();
-                pass = et_pass.getText().toString();
 
-                //Kondisi pengecekan tiap input saat menekan tombol login
-                if(username.equals("")){
-                    Toast.makeText(Login.this, "Username Required", Toast.LENGTH_SHORT).show();
-                }
-                else if(pass.equals("")){
-                    Toast.makeText(Login.this, "Password Required", Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    //Jika Seluruh Kondisi diatas telah diverifikasi, maka fungsi Login akan jalan dan mengirimkan data ke server
-                    Login(username, pass);
-                }
+//                //Inisialisasi Variable dengan tipe String
+//                String username, pass;
+//
+//                //Memasukkan Data String yang ditangkap ke Variable yang telah diinisialisasikan
+//                username = et_username.getText().toString();
+//                pass = et_pass.getText().toString();
+//
+//                //Kondisi pengecekan tiap input saat menekan tombol login
+//                if(username.equals("")){
+//                    Toast.makeText(Login.this, "Username Required", Toast.LENGTH_SHORT).show();
+//                }
+//                else if(pass.equals("")){
+//                    Toast.makeText(Login.this, "Password Required", Toast.LENGTH_SHORT).show();
+//                }
+//                else{
+//                    //Jika Seluruh Kondisi diatas telah diverifikasi, maka fungsi Login akan jalan dan mengirimkan data ke server
+//                    Login(username, pass);
+//                }
             }
         });
     }

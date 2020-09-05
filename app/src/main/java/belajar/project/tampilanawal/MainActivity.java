@@ -17,23 +17,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
         // definisikan cards nya bosku !!!
 
-        Bundle p = getIntent().getExtras();
-        saldos = p.getString("saldo");
-        user = p.getString("username");
-        setContentView(R.layout.activity_main);
+//        Bundle p = getIntent().getExtras();
+//        saldos = p.getString("saldo");
+//        user = p.getString("username");
+
         TextView saldo = findViewById(R.id.saldo);
         infoCv = (CardView) findViewById(R.id.info_cv);
         userCv = (CardView) findViewById(R.id.user_cv);
         paymentCv = (CardView) findViewById(R.id.payment_cv);
         historyCv = (CardView) findViewById(R.id.history_cv);
 
-        // tambah Click listener pada cards nya bosku !!!
-        SharedPreferences userDetails = getApplicationContext().getSharedPreferences("my_shared_preferences", MODE_PRIVATE);
-        saldos = userDetails.getString("saldo", "");
-        saldo.setText("Saldo : "+saldos);
+//        // tambah Click listener pada cards nya bosku !!!
+//        SharedPreferences userDetails = getApplicationContext().getSharedPreferences("my_shared_preferences", MODE_PRIVATE);
+//        saldos = userDetails.getString("saldo", "");
+//        saldo.setText("Saldo : "+saldos);
         infoCv.setOnClickListener(this);
         userCv.setOnClickListener(this);
         paymentCv.setOnClickListener(new View.OnClickListener() {
