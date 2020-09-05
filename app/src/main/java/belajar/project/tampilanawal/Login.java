@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -47,7 +48,8 @@ public class Login extends AppCompatActivity {
 
         //Inisialisasi variable XML
         final EditText et_username, et_pass;
-        Button btn_login, btn_register;
+        Button btn_login;
+        TextView btn_register;
 
         //Connect XML dengan variable berdasarkan ID
         et_username = findViewById(R.id.et_login_username);

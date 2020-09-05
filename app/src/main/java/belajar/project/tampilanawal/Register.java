@@ -85,7 +85,7 @@ public class Register extends AppCompatActivity {
     private void Register(final String username, final String email, final String pass) {
 
         //Atur URL file Register di Apache Server
-        String URL_REGISTER = "http://172.20.10.3/etoll/register.php";
+        String URL_REGISTER = "http://10.2.3.17/etoll/register.php";
 
         //String Request dengan menggunakan method POST
         StringRequest stringRequest = new StringRequest(Request.Method.POST, URL_REGISTER,

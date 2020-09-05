@@ -1,75 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:gravity="center_vertical"
-    android:background="#7DCEA0"
-    android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
+    <ImageView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Log In"
-        android:textColor="#fff"
-        android:textStyle="bold"
-        android:textSize="20sp"
-        android:textAlignment="center"/>
+        android:layout_alignParentTop="true"
+        android:background="@drawable/header" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/footer" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview1"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_centerInParent="true"
+        android:layout_marginHorizontal="16dp"
+        android:elevation="15dp"
+        app:cardCornerRadius="14dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/et_login_username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="14dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/bg_input_login"
+                android:drawableLeft="@drawable/ic_person_black_24dp"
+                android:drawablePadding="16dp"
+                android:hint="Username"
+                android:inputType="text"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="10dp"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary" />
+
+            <EditText
+                android:id="@+id/et_login_pass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/et_login_username"
+                android:layout_marginHorizontal="12dp"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/bg_input_login"
+                android:drawableLeft="@drawable/ic_lock_black_24dp"
+                android:drawablePadding="16dp"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:paddingHorizontal="8dp"
+                android:paddingVertical="10dp"
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@color/colorPrimary" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="12dp"
-        android:text="Username"
-        android:textColor="#fff"
-        android:textStyle="bold"
-        android:textSize="20sp"/>
-    <EditText
-        android:id="@+id/et_login_username"
-        android:layout_width="match_parent"
+        android:layout_marginLeft="20sp"
+        android:layout_marginTop="50dp"
+        android:text="Login"
+        android:textColor="@color/putih"
+        android:textSize="35dp"
+        android:textStyle="bold" />
+
+
+    <Button
+        android:id="@+id/btn_login_login"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_margin="12dp"
-        android:hint="Input Username"
-        android:inputType="text"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="12dp"
-        android:text="Password"
-        android:textColor="#fff"
-        android:textStyle="bold"
-        android:textSize="20sp"/>
-    <EditText
-        android:id="@+id/et_login_pass"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="12dp"
-        android:hint="Input Password"
-        android:inputType="textPassword"/>
+        android:layout_below="@id/cardview1"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-25dp"
+        android:layout_weight="1"
+        android:background="@drawable/bg_btn_login"
+        android:text="Login"
+        android:textColor="@color/putih" />
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <Button
-            android:id="@+id/btn_login_login"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_login_login"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="12dp"
-            android:text="Login"/>
-        <Button
+            android:text="Belum Memiliki Akun ?" />
+
+        <TextView
             android:id="@+id/btn_login_register"
-            android:layout_weight="1"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:layout_margin="12dp"
-            android:text="Register"/>
+            android:text="Register"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/colorPrimary"
+            android:textStyle="bold" />
 
     </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>

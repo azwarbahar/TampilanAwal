@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#b2cbab</color>
+    <color name="colorPrimary">#3099E2</color>
     <color name="colorPrimaryDark">#000</color>
     <color name="colorLightGrey">#ededed</color>
     <color name="startGreen">#b2cbab</color>
     <color name="endGreen">#b2cbab</color>
     <color name="colorAccent">#ff4081</color>
+
+    <color name="putih">#FFFFFF</color>
 </resources>

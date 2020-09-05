@@ -53,7 +53,7 @@ public class User extends AppCompatActivity {
         key = sharedpreferences.getString(KEY, null);
 
         //Atur URL file Login di Apache Server
-        String URL_LOGIN = "http://172.20.10.3/etoll/user.php";
+        String URL_LOGIN = "http://10.2.3.17/etoll/user.php";
 
 
                 //String Request dengan menggunakan method POST
