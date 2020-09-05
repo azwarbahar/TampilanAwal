@@ -20,7 +20,7 @@ public class SplashScreenActivity extends AppCompatActivity {
             @Override
             public void run() {
 
-                //setelah loading maka akan langsung berpindah ke home activity
+                //setelah loading maka akan langsung berpindah ke Login activity
                 Intent login=new Intent(SplashScreenActivity.this, Login.class);
                 startActivity(login);
                 finish();
