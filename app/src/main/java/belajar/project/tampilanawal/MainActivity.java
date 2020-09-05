@@ -40,12 +40,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         paymentCv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(Integer.parseInt(saldos)>=2000){
+//                if(Integer.parseInt(saldos)>=2000){
                     Intent i = new Intent(getApplicationContext(), Payment.class);
                     startActivity(i);
-                } else {
-                    Toast.makeText(getApplicationContext(), "Saldo tidak cukup", Toast.LENGTH_LONG).show();
-                }
+//                } else {
+//                    Toast.makeText(getApplicationContext(), "Saldo tidak cukup", Toast.LENGTH_LONG).show();
+//                }
             }
         });
         historyCv.setOnClickListener(this);
